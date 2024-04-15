@@ -5,6 +5,8 @@ public partial class PanelContainer2 : PanelContainer
 {
 	[Export] public float TransitionDuration;
 
+	public static bool OnlyOnce = false;
+
 	public float Elapsed;
 
 	public float Delay = 1f;
@@ -22,6 +24,12 @@ public partial class PanelContainer2 : PanelContainer
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (OnlyOnce)
+		{
+			Visible = false;
+			return;
+		}
+
 		Elapsed += (float)delta;
 
 		if (Elapsed < Delay) return;
@@ -34,6 +42,7 @@ public partial class PanelContainer2 : PanelContainer
 
 		if (Elapsed > TransitionDuration)
 		{
+			OnlyOnce = true;
 			Visible = false;
 		}
 	}

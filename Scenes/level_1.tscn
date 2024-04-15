@@ -262,7 +262,7 @@ skeleton = NodePath("../../wall5")
 surface_material_override/0 = SubResource("StandardMaterial3D_uqox8")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="world/walls/wall6"]
-transform = Transform3D(-0.290968, 0, -0.0779647, 0.0779647, -1.31673e-08, -0.290968, 3.40794e-09, 0.301232, -1.27186e-08, -1.17704, 0.747143, -1.91844)
+transform = Transform3D(-0.290968, 0, -0.0779647, 0.0779647, -1.31673e-08, -0.290968, 3.40794e-09, 0.301232, -1.27186e-08, -1.17704, 0.747143, -2.29411)
 mesh = SubResource("PlaneMesh_uslfp")
 skeleton = NodePath("../../wall5")
 surface_material_override/0 = SubResource("StandardMaterial3D_uqox8")

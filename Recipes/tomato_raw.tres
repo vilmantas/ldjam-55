@@ -7,6 +7,7 @@
 script = ExtResource("1_d2v35")
 Components = PackedStringArray("Pepper", "Pepper")
 Result = ExtResource("1_wiuyg")
-CompletionReward = 25
+CompletionReward = 80
+IsShopItem = false
 IsUnlocked = true
 UnlockCost = 0
