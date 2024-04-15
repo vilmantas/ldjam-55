@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dgafx0gxea8us"
+path="res://.godot/imported/Ambient Sadness Intensity 2.wav-5fc698b02515d557f92f2d8412fdec36.sample"
+
+[deps]
+
+source_file="res://Addons/Ambient Sadness Intensity 2.wav"
+dest_files=["res://.godot/imported/Ambient Sadness Intensity 2.wav-5fc698b02515d557f92f2d8412fdec36.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

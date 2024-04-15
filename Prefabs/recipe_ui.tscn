@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dho7si3wa4s6g"]
+
+[ext_resource type="Script" path="res://Scripts/RecipeUIController.cs" id="1_7ofkc"]
+
+[node name="recipe" type="HBoxContainer" node_paths=PackedStringArray("Component1Label", "Component2Label", "ResultLabel")]
+size_flags_vertical = 3
+script = ExtResource("1_7ofkc")
+Component1Label = NodePath("component_1")
+Component2Label = NodePath("component_2")
+ResultLabel = NodePath("result")
+
+[node name="component_1" type="Label" parent="."]
+layout_mode = 2
+text = "Cabbage"
+
+[node name="plus" type="Label" parent="."]
+layout_mode = 2
+text = "+"
+
+[node name="component_2" type="Label" parent="."]
+layout_mode = 2
+text = "Cabbage"
+
+[node name="equals" type="Label" parent="."]
+layout_mode = 2
+text = "="
+
+[node name="result" type="Label" parent="."]
+layout_mode = 2
+text = "Coconut"

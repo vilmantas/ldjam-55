@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccs0xh7kg3pee"]
+
+[ext_resource type="PackedScene" uid="uid://b5j8up53bruxo" path="res://Imports/Mask.fbx" id="1_xa0bj"]
+
+[node name="Root Scene" instance=ExtResource("1_xa0bj")]
+
+[node name="SM_Prop_Mask_01" parent="RootNode" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

@@ -1,0 +1,154 @@
+[gd_scene load_steps=4 format=3 uid="uid://drk3qbxgexx0g"]
+
+[ext_resource type="Texture2D" uid="uid://dtto16s2nvhkv" path="res://ComponentImages/Coconut.png" id="1_khuiw"]
+[ext_resource type="Script" path="res://Scripts/ShopItemController.cs" id="1_un7j5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm32x"]
+bg_color = Color(0, 0.27451, 0.368627, 1)
+
+[node name="Panel" type="Panel" node_paths=PackedStringArray("ResultLabel", "ResultIcon", "PurchaseOverlay", "PurchaseButton", "ComponentBoughtScreen", "PurchasedLabel", "BuyLabel", "BlockedScreen", "BlockedLabel")]
+custom_minimum_size = Vector2(170, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sm32x")
+script = ExtResource("1_un7j5")
+ResultLabel = NodePath("CenterContainer/MarginContainer/VBoxContainer/Label")
+ResultIcon = NodePath("CenterContainer/MarginContainer/VBoxContainer/TextureRect")
+PurchaseOverlay = NodePath("purchase_screen")
+PurchaseButton = NodePath("purchase_screen/Button")
+ComponentBoughtScreen = NodePath("unlocked_screen")
+PurchasedLabel = NodePath("unlocked_screen/Button/Label")
+BuyLabel = NodePath("purchase_screen/Button/Label")
+BlockedScreen = NodePath("blocked")
+BlockedLabel = NodePath("blocked/Button/Label")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_khuiw")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="purchase_screen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="purchase_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="purchase_screen/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.956863, 0.627451, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0, 0.403922, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 21
+text = "UNLOCK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="unlocked_screen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="unlocked_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="unlocked_screen/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.709804, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.403922, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 21
+text = "PURCHASED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blocked" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="blocked"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="blocked/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.654902, 0.192157, 0.121569, 1)
+theme_override_colors/font_outline_color = Color(0, 0.403922, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 21
+text = "PURCHASE PREVIOUS RECIPE FIRST"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

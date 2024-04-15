@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://ctnqjl1saafiv"]
+
+[ext_resource type="PackedScene" uid="uid://cql7gjsrjfdat" path="res://Components/pear_raw.tscn" id="1_bxgu0"]
+[ext_resource type="Script" path="res://Recipe.cs" id="2_b4flp"]
+
+[resource]
+script = ExtResource("2_b4flp")
+Components = PackedStringArray("Shroom", "Shroom")
+Result = ExtResource("1_bxgu0")
+CompletionReward = 4
+IsShopItem = false
+IsUnlocked = true
+UnlockCost = 0

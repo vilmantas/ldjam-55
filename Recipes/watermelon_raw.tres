@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://d12t6m17kvxnp"]
+
+[ext_resource type="PackedScene" uid="uid://b22ind74adpw" path="res://Components/watermelon_raw.tscn" id="1_k281w"]
+[ext_resource type="Script" path="res://Recipe.cs" id="2_u5wde"]
+
+[resource]
+script = ExtResource("2_u5wde")
+Components = PackedStringArray("Pumpkin", "Pumpkin")
+Result = ExtResource("1_k281w")
+CompletionReward = 10000
+IsShopItem = true
+IsUnlocked = false
+UnlockCost = 1000

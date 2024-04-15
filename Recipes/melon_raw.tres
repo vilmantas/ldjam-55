@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://cc3thc8ttv1w2"]
+
+[ext_resource type="PackedScene" uid="uid://wh652jrp7aec" path="res://Components/melon_raw.tscn" id="1_6nkxs"]
+[ext_resource type="Script" path="res://Recipe.cs" id="2_2fi00"]
+
+[resource]
+script = ExtResource("2_2fi00")
+Components = PackedStringArray("Tomato", "Tomato")
+Result = ExtResource("1_6nkxs")
+CompletionReward = 75
+IsUnlocked = true
+UnlockCost = 0

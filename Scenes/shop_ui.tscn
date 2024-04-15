@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk0rj562a0p7k"]
+
+[ext_resource type="Script" path="res://Scripts/ShopUIController.cs" id="1_alcwb"]
+[ext_resource type="PackedScene" uid="uid://drk3qbxgexx0g" path="res://Prefabs/shop_item.tscn" id="2_qqyjb"]
+
+[node name="ShopUi" type="Control" node_paths=PackedStringArray("ShopItemsContainer", "UpgradeItemsContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_alcwb")
+ShopItemPrefab = ExtResource("2_qqyjb")
+ShopItemsContainer = NodePath("HBoxContainer/MarginContainer/RecipesContainer")
+UpgradeItemsContainer = NodePath("HBoxContainer/MarginContainer2/UpgradesContainer")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Recipes ->"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="RecipesContainer" type="FlowContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+vertical = true
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Upgrades ->"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="UpgradesContainer" type="FlowContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+vertical = true

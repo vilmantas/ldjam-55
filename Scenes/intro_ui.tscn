@@ -1,0 +1,251 @@
+[gd_scene load_steps=14 format=3 uid="uid://b603kjh3tq11r"]
+
+[ext_resource type="Script" path="res://Scripts/IntroUIController.cs" id="1_e2aou"]
+[ext_resource type="PackedScene" uid="uid://bk0rj562a0p7k" path="res://Scenes/shop_ui.tscn" id="2_rupjf"]
+[ext_resource type="PackedScene" uid="uid://ddikm162tqp85" path="res://Scenes/options_ui.tscn" id="3_5qftv"]
+[ext_resource type="Texture2D" uid="uid://cqh35052y5ehp" path="res://Icons/right-click.png" id="4_72o5k"]
+[ext_resource type="Texture2D" uid="uid://1an8w06lac8t" path="res://Icons/rotate.png" id="5_aipfh"]
+[ext_resource type="Texture2D" uid="uid://ywalntookf0p" path="res://Icons/space-icon.png" id="6_mqfks"]
+[ext_resource type="Script" path="res://Scenes/PanelContainer2.cs" id="7_incmg"]
+
+[sub_resource type="Gradient" id="Gradient_ackxs"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.466667, 0, 0, 0.454902)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0w0i3"]
+gradient = SubResource("Gradient_ackxs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7mjf"]
+texture = SubResource("GradientTexture2D_0w0i3")
+
+[sub_resource type="Gradient" id="Gradient_81clf"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0470588, 0.701961, 0.803922, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_delld"]
+gradient = SubResource("Gradient_81clf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jia5u"]
+texture = SubResource("GradientTexture2D_delld")
+
+[node name="IntroUi" type="Control" node_paths=PackedStringArray("StartButton", "ShopButton", "ExitButton", "SettingsButton", "ScoreLabel", "GoldLabel", "ShopUI", "OptionsUI", "ClearStats")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e2aou")
+StartButton = NodePath("VBoxContainer/StartButton")
+ShopButton = NodePath("VBoxContainer/ShopButton")
+ExitButton = NodePath("VBoxContainer/ExitButton")
+SettingsButton = NodePath("VBoxContainer/OptionsButton")
+ScoreLabel = NodePath("ScoreLabel")
+GoldLabel = NodePath("GoldLabel")
+ShopUI = NodePath("ShopUi")
+OptionsUI = NodePath("OptionsUI")
+ClearStats = NodePath("Control/OptionsButton2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d7mjf")
+
+[node name="ShopUi" parent="." instance=ExtResource("2_rupjf")]
+visible = false
+layout_mode = 1
+offset_left = 399.0
+offset_top = 227.0
+offset_right = -27.0
+offset_bottom = -30.0
+
+[node name="OptionsUI" parent="." instance=ExtResource("3_5qftv")]
+visible = false
+layout_mode = 1
+offset_left = 476.0
+offset_top = 256.0
+offset_right = -87.0
+offset_bottom = -81.0
+
+[node name="MenuTitle" type="Label" parent="."]
+layout_mode = 2
+offset_left = 78.0
+offset_top = 60.0
+offset_right = 317.0
+offset_bottom = 117.0
+theme_override_colors/font_shadow_color = Color(0.168627, 0.266667, 0.576471, 1)
+theme_override_colors/font_outline_color = Color(0.168627, 0.266667, 0.576471, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 41
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="GoldTitle" type="Label" parent="."]
+layout_mode = 2
+offset_left = 430.0
+offset_top = 60.0
+offset_right = 669.0
+offset_bottom = 117.0
+theme_override_colors/font_shadow_color = Color(0.168627, 0.266667, 0.576471, 1)
+theme_override_colors/font_outline_color = Color(0.168627, 0.266667, 0.576471, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 41
+text = "Gold"
+horizontal_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 430.0
+offset_top = 140.0
+offset_right = 669.0
+offset_bottom = 197.0
+theme_override_colors/font_shadow_color = Color(0.352941, 0.290196, 0.0392157, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 41
+text = "0"
+horizontal_alignment = 1
+
+[node name="ScoreTitle" type="Label" parent="."]
+layout_mode = 2
+offset_left = 847.0
+offset_top = 60.0
+offset_right = 1086.0
+offset_bottom = 117.0
+theme_override_colors/font_shadow_color = Color(0.168627, 0.266667, 0.576471, 1)
+theme_override_colors/font_outline_color = Color(0.168627, 0.266667, 0.576471, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 41
+text = "Top Score"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 847.0
+offset_top = 140.0
+offset_right = 1086.0
+offset_bottom = 197.0
+theme_override_colors/font_shadow_color = Color(0.352941, 0.290196, 0.0392157, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 41
+text = "0"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 148.0
+offset_right = 319.0
+offset_bottom = 510.0
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start
+"
+
+[node name="ShopButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Shop"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 527.0
+offset_right = 270.0
+offset_bottom = 667.0
+texture = ExtResource("4_72o5k")
+expand_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 754.0
+offset_right = 407.0
+offset_bottom = 894.0
+rotation = 3.14159
+texture = ExtResource("5_aipfh")
+expand_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 713.0
+offset_right = 274.0
+offset_bottom = 853.0
+texture = ExtResource("6_mqfks")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 606.0
+offset_right = 132.0
+offset_bottom = 629.0
+text = "Rotate Camera"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 767.0
+offset_right = 158.0
+offset_bottom = 790.0
+text = "Throw"
+
+[node name="OptionsButton2" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = 1003.0
+offset_right = 261.0
+offset_bottom = 1059.0
+size_flags_vertical = 3
+text = "Remove saved file & Quit"
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 857.0
+offset_right = 305.0
+offset_bottom = 894.0
+theme_override_font_sizes/font_size = 27
+text = "Food + Ground = Loss"
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jia5u")
+script = ExtResource("7_incmg")
+TransitionDuration = 2.0

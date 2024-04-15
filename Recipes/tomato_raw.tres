@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://bglkk0ooj8gby"]
+
+[ext_resource type="Script" path="res://Recipe.cs" id="1_d2v35"]
+[ext_resource type="PackedScene" uid="uid://bttjihr57od65" path="res://Components/tomato_raw.tscn" id="1_wiuyg"]
+
+[resource]
+script = ExtResource("1_d2v35")
+Components = PackedStringArray("Pepper", "Pepper")
+Result = ExtResource("1_wiuyg")
+CompletionReward = 25
+IsUnlocked = true
+UnlockCost = 0

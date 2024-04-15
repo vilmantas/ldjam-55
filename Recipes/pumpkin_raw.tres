@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://cffkxqvamuki4"]
+
+[ext_resource type="PackedScene" uid="uid://xreec8qh3f4v" path="res://Components/pumpkin_raw.tscn" id="1_utwl0"]
+[ext_resource type="Script" path="res://Recipe.cs" id="2_pqtir"]
+
+[resource]
+script = ExtResource("2_pqtir")
+Components = PackedStringArray("Cabbage", "Cabbage")
+Result = ExtResource("1_utwl0")
+CompletionReward = 4000
+IsShopItem = true
+IsUnlocked = false
+UnlockCost = 400

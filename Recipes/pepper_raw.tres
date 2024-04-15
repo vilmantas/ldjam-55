@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://cl3uuovxlbx3j"]
+
+[ext_resource type="PackedScene" uid="uid://cq73oihbm1w4m" path="res://Components/pepper_raw.tscn" id="1_lggc7"]
+[ext_resource type="Script" path="res://Recipe.cs" id="2_wnjpo"]
+
+[resource]
+script = ExtResource("2_wnjpo")
+Components = PackedStringArray("Pear", "Pear")
+Result = ExtResource("1_lggc7")
+CompletionReward = 10
+IsUnlocked = true
+UnlockCost = 0

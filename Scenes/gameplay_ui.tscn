@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4hwlfjfk0stl"]
+
+[ext_resource type="Script" path="res://GameplayUIController.cs" id="1_pnrm8"]
+[ext_resource type="Script" path="res://Scripts/RecipeListUIController.cs" id="2_8lwbq"]
+[ext_resource type="PackedScene" uid="uid://dho7si3wa4s6g" path="res://Prefabs/recipe_ui.tscn" id="3_a4k5w"]
+
+[node name="GameplayUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pnrm8")
+
+[node name="PowerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 71.0
+offset_right = 135.0
+offset_bottom = 94.0
+text = "Lobbing Power"
+
+[node name="PowerBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 107.0
+offset_right = 342.0
+offset_bottom = 134.0
+max_value = 2.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 135.0
+offset_bottom = 32.0
+text = "Score"
+
+[node name="ScoreText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 46.0
+offset_right = 135.0
+offset_bottom = 69.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_left = 33.0
+offset_top = 154.0
+offset_right = 53.0
+offset_bottom = 174.0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Recipes" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+script = ExtResource("2_8lwbq")
+RecipeUIPrefab = ExtResource("3_a4k5w")
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://ddc2gdp51oho3"]
+
+[ext_resource type="PackedScene" uid="uid://lnpr3nygn22h" path="res://Components/pineapple_raw.tscn" id="1_4vihb"]
+[ext_resource type="Script" path="res://Recipe.cs" id="2_q4iin"]
+
+[resource]
+script = ExtResource("2_q4iin")
+Components = PackedStringArray("Melon", "Melon")
+Result = ExtResource("1_4vihb")
+CompletionReward = 200
+IsShopItem = true
+IsUnlocked = false
+UnlockCost = 50

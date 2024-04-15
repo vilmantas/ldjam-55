@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://divqygqbmg85q"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bwhwb"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0.1, 0.1)
+angle_min = -700.5
+angle_max = 562.2
+direction = Vector3(0, 0, 0)
+spread = 63.837
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0.2, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vwe53"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="fire" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+amount = 30
+lifetime = 4.76
+visibility_aabb = AABB(-1.24209, -1.36841, -1.10795, 2.48417, 2.73682, 2.2159)
+process_material = SubResource("ParticleProcessMaterial_bwhwb")
+draw_pass_1 = SubResource("BoxMesh_vwe53")

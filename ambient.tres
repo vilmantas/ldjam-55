@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=6 format=3 uid="uid://i7nt7fsm1ljp"]
+
+[ext_resource type="AudioStream" uid="uid://b4717qogl40t2" path="res://Addons/Ambient Sadness Intensity 1.wav" id="1_r6r8w"]
+[ext_resource type="AudioStream" uid="uid://db3a2fw78vtth" path="res://Addons/Ambient Sadness cut 60.wav" id="1_ye4w8"]
+[ext_resource type="AudioStream" uid="uid://dgafx0gxea8us" path="res://Addons/Ambient Sadness Intensity 2.wav" id="2_dpjd4"]
+[ext_resource type="Script" path="res://Addons/Godot Plugin/OvaniSong.gd" id="2_hqeg1"]
+[ext_resource type="AudioStream" uid="uid://b1k1rnbfyo7vl" path="res://Addons/Ambient Sadness cut 30.wav" id="3_jxqr1"]
+
+[resource]
+script = ExtResource("2_hqeg1")
+Intensity1 = ExtResource("1_r6r8w")
+Intensity2 = ExtResource("2_dpjd4")
+Intensity3 = ExtResource("2_dpjd4")
+Loop30 = ExtResource("3_jxqr1")
+Loop60 = ExtResource("1_ye4w8")
+ReverbTail = 5.334
+SongMode = 0
