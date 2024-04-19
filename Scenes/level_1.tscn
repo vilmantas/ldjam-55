@@ -184,12 +184,11 @@ metallic_specular = 0.0
 
 [node name="Level" type="Node3D"]
 
-[node name="Gameplay" type="Node3D" parent="." node_paths=PackedStringArray("HurtAudio", "Audio", "PauseUI", "Bowl", "Kebab", "Camera", "VictoryUI")]
+[node name="Gameplay" type="Node3D" parent="." node_paths=PackedStringArray("HurtAudio", "Audio", "PauseUI", "Kebab", "Camera", "VictoryUI")]
 script = ExtResource("1_37qh3")
 HurtAudio = NodePath("../camera_center/camera/hurt")
 Audio = NodePath("../camera_center/camera/AudioStreamPlayer3D")
 PauseUI = NodePath("../PauseUi")
-Bowl = NodePath("../bowl")
 Kebab = NodePath("../Kebab")
 UsableComponents = Array[PackedScene]([ExtResource("2_yalr2"), ExtResource("3_r33id"), ExtResource("4_wby0n")])
 Camera = NodePath("../camera_center")
