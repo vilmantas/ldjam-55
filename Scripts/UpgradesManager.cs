@@ -15,7 +15,7 @@ public partial class UpgradesManager : Node
 
 		Upgrades.Add(new GameUpgrade()
 		{
-			Name = "Height +5%",
+			Name = "Increased Height",
 			Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/BowlHeight.png"),
 			MaxTiers = 10,
 			CurrentTier = 0,
@@ -26,7 +26,7 @@ public partial class UpgradesManager : Node
 
 		Upgrades.Add(new GameUpgrade()
 		{
-			Name = "Width +5%",
+			Name = "Increased Width",
 			Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/BowlWidth.png"),
 			MaxTiers = 5,
 			CurrentTier = 0,

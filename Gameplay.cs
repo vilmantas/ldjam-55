@@ -252,6 +252,7 @@ public partial class Gameplay : Node3D
 
 		currentDisplayInstance.IsThrown = true;
 
+		currentDisplayInstance.CollisionLayer = 4;
 		Camera.DisplaySpawn.AddChild(currentDisplayInstance);
 
 		Camera.CurrentDisplay = currentDisplayInstance;
@@ -261,6 +262,7 @@ public partial class Gameplay : Node3D
 
 		var nextDisplayInstance = next.Instantiate<ComponentController>();
 
+		nextDisplayInstance.CollisionLayer = 4;
 		nextDisplayInstance.IsThrown = true;
 
 		Camera.NextDisplaySpawn.AddChild(nextDisplayInstance);

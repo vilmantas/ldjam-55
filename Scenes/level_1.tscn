@@ -184,11 +184,12 @@ metallic_specular = 0.0
 
 [node name="Level" type="Node3D"]
 
-[node name="Gameplay" type="Node3D" parent="." node_paths=PackedStringArray("HurtAudio", "Audio", "PauseUI", "Kebab", "Camera", "VictoryUI")]
+[node name="Gameplay" type="Node3D" parent="." node_paths=PackedStringArray("HurtAudio", "Audio", "PauseUI", "Bowl", "Kebab", "Camera", "VictoryUI")]
 script = ExtResource("1_37qh3")
 HurtAudio = NodePath("../camera_center/camera/hurt")
 Audio = NodePath("../camera_center/camera/AudioStreamPlayer3D")
 PauseUI = NodePath("../PauseUi")
+Bowl = NodePath("../bowl")
 Kebab = NodePath("../Kebab")
 UsableComponents = Array[PackedScene]([ExtResource("2_yalr2"), ExtResource("3_r33id"), ExtResource("4_wby0n")])
 Camera = NodePath("../camera_center")
@@ -320,66 +321,68 @@ metadata/_edit_group_ = true
 transform = Transform3D(2, 0, 3.49691e-07, 0, 2, 0, -3.49691e-07, 0, 2, 4.52351, 0.0099982, 0.0234838)
 metadata/_edit_group_ = true
 
-[node name="ground" type="StaticBody3D" parent="world/walls"]
+[node name="Node3D" type="Node3D" parent="world/walls"]
+
+[node name="ground" type="StaticBody3D" parent="world/walls/Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0, -3)
 script = ExtResource("20_a7y7v")
 
-[node name="hitbox" type="CollisionShape3D" parent="world/walls/ground"]
+[node name="hitbox" type="CollisionShape3D" parent="world/walls/Node3D/ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.92377, 0)
 shape = SubResource("BoxShape3D_rp6jb")
 
-[node name="mesh" type="MeshInstance3D" parent="world/walls/ground"]
+[node name="mesh" type="MeshInstance3D" parent="world/walls/Node3D/ground"]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0, 0, 0.283681)
 mesh = SubResource("PlaneMesh_7qnpi")
-skeleton = NodePath("../../../../Gameplay")
+skeleton = NodePath("../../../../../Gameplay")
 surface_material_override/0 = SubResource("StandardMaterial3D_8t2uu")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="world/walls/ground"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="world/walls/Node3D/ground"]
 transform = Transform3D(0.00832246, -0.00147723, 2.10934, 0.00305297, 2.10935, 0.00146504, -2.10934, 0.00304719, 0.00832478, -0.959131, 0.00530338, 1.65461)
 mesh = SubResource("PlaneMesh_uslfp")
-skeleton = NodePath("../../wall5")
+skeleton = NodePath("../../../wall5")
 surface_material_override/0 = SubResource("StandardMaterial3D_4q4a8")
 
-[node name="ground2" type="StaticBody3D" parent="world/walls"]
+[node name="ground2" type="StaticBody3D" parent="world/walls/Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0, 2.53506)
 script = ExtResource("20_a7y7v")
 
-[node name="hitbox" type="CollisionShape3D" parent="world/walls/ground2"]
+[node name="hitbox" type="CollisionShape3D" parent="world/walls/Node3D/ground2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.92377, 0)
 shape = SubResource("BoxShape3D_rp6jb")
 
-[node name="mesh" type="MeshInstance3D" parent="world/walls/ground2"]
+[node name="mesh" type="MeshInstance3D" parent="world/walls/Node3D/ground2"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = SubResource("PlaneMesh_7qnpi")
-skeleton = NodePath("../../../../Gameplay")
+skeleton = NodePath("../../../../../Gameplay")
 surface_material_override/0 = SubResource("StandardMaterial3D_8t2uu")
 
-[node name="ground3" type="StaticBody3D" parent="world/walls"]
+[node name="ground3" type="StaticBody3D" parent="world/walls/Node3D"]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -2.97154, 0, 3.03705)
 script = ExtResource("20_a7y7v")
 
-[node name="hitbox" type="CollisionShape3D" parent="world/walls/ground3"]
+[node name="hitbox" type="CollisionShape3D" parent="world/walls/Node3D/ground3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.92377, 0)
 shape = SubResource("BoxShape3D_rp6jb")
 
-[node name="mesh" type="MeshInstance3D" parent="world/walls/ground3"]
+[node name="mesh" type="MeshInstance3D" parent="world/walls/Node3D/ground3"]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0, 0, 0.255718)
 mesh = SubResource("PlaneMesh_7qnpi")
-skeleton = NodePath("../../../../Gameplay")
+skeleton = NodePath("../../../../../Gameplay")
 surface_material_override/0 = SubResource("StandardMaterial3D_8t2uu")
 
-[node name="ground4" type="StaticBody3D" parent="world/walls"]
+[node name="ground4" type="StaticBody3D" parent="world/walls/Node3D"]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -2.97154, 0, -2.49801)
 script = ExtResource("20_a7y7v")
 
-[node name="hitbox" type="CollisionShape3D" parent="world/walls/ground4"]
+[node name="hitbox" type="CollisionShape3D" parent="world/walls/Node3D/ground4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.92377, 0)
 shape = SubResource("BoxShape3D_rp6jb")
 
-[node name="mesh" type="MeshInstance3D" parent="world/walls/ground4"]
+[node name="mesh" type="MeshInstance3D" parent="world/walls/Node3D/ground4"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -0.0279627)
 mesh = SubResource("PlaneMesh_7qnpi")
-skeleton = NodePath("../../../../Gameplay")
+skeleton = NodePath("../../../../../Gameplay")
 surface_material_override/0 = SubResource("StandardMaterial3D_8t2uu")
 
 [node name="SM_Prop_Candle_Chandelier_02_Preset" type="MeshInstance3D" parent="world"]

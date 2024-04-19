@@ -46,11 +46,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_88rha")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_wlh4m"]
-radius = 0.014322
-
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0tfbi"]
 points = PackedVector3Array(0.0224445, -0.0113108, 0.0113166, -0.0320114, -0.0203097, -0.00145235, -0.0290546, -0.0303665, -0.0028913, -0.000238482, -0.00696475, -0.0266528, -0.00617761, 0.0520691, 0.00305821, -0.00306385, -0.0202972, 0.0289268, 0.0101097, -0.0440333, -0.0117268, 0.0195734, -0.0169403, -0.0212126, -0.0231978, -0.0216072, -0.0215863, -0.000138339, -0.0441733, 0.016149, -0.0233244, -0.0232067, 0.0202519, 0.0126882, 0.0271664, -0.0085923, 0.0175387, -0.0354381, 0.017655, 0.0154707, 0.0170933, 0.0113898, 0.0273814, -0.0203367, -0.0014546, -0.00599752, -0.0425911, -0.0175882, -0.00771465, 0.0505273, -0.00307851, -0.0177167, -0.0440413, 0.00438204, -0.000164572, -0.0334431, -0.0261411, 0.018579, -0.0202371, 0.0216314, -0.000248411, -0.00691834, 0.0265071, -0.0205504, -0.035037, 0.0189307, 0.0196189, 0.0170089, -0.00142192, -0.0206117, -0.0351646, -0.0190144, -0.0211891, -0.00832362, 0.0181434, 0.0144784, -0.0439676, 0.00144789, 0.0171929, -0.0318709, -0.0188181, -0.0318822, -0.0187642, 0.00286505, -0.0261442, -0.0202421, -0.0187683, -0.00162172, -0.0319702, 0.0261137, -0.00449103, -0.0230353, -0.0287711, -3.56189e-05, 0.048976, -0.00154283)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wlh4m"]
+radius = 0.014322
 
 [node name="component" type="RigidBody3D"]
 mass = 3.01
@@ -64,46 +64,6 @@ transform = Transform3D(6.1131, 0, 0, 0, 6.1131, 0, 0, 0, 6.1131, -0.0027251, 0.
 mesh = SubResource("ArrayMesh_1yxys")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_5k7j7")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="SM_Pear_Raw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115217, -0.026645, 0.00715815)
-shape = SubResource("SphereShape3D_wlh4m")
-disabled = true
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="SM_Pear_Raw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115217, -0.026645, -0.0110463)
-shape = SubResource("SphereShape3D_wlh4m")
-disabled = true
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="SM_Pear_Raw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0118067, -0.026645, -0.012041)
-shape = SubResource("SphereShape3D_wlh4m")
-disabled = true
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="SM_Pear_Raw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0165121, -0.026645, 0.00216127)
-shape = SubResource("SphereShape3D_wlh4m")
-disabled = true
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="SM_Pear_Raw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00345574, 0.0109719, 0.0117663)
-shape = SubResource("SphereShape3D_wlh4m")
-disabled = true
-
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="SM_Pear_Raw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120564, 0.0109719, -0.00360652)
-shape = SubResource("SphereShape3D_wlh4m")
-disabled = true
-
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="SM_Pear_Raw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00901392, 0.0109719, 0.00556104)
-shape = SubResource("SphereShape3D_wlh4m")
-disabled = true
-
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="SM_Pear_Raw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00755741, 0.0109719, -0.00890279)
-shape = SubResource("SphereShape3D_wlh4m")
-disabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(6.1131, 0, 0, 0, 6.1131, 0, 0, 0, 6.1131, -0.0027251, 0.084397, 0)

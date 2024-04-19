@@ -160,6 +160,8 @@ albedo_color = Color(0.556863, 0.556863, 0.556863, 1)
 
 [node name="intro" type="Node3D"]
 
+[node name="Gameplay" type="Node3D" parent="."]
+
 [node name="IntroUi" parent="." node_paths=PackedStringArray("ClickStream", "HoverStream") instance=ExtResource("1_hmxaf")]
 ClickStream = NodePath("../camera_center/camera/click_stream")
 HoverStream = NodePath("../camera_center/camera/hover_stream")
@@ -175,7 +177,6 @@ shadow_enabled = true
 
 [node name="camera" type="Camera3D" parent="camera_center"]
 transform = Transform3D(0.714473, 0.27787, -0.642119, 0, 0.917755, 0.397148, 0.699663, -0.283751, 0.655711, -3.8438, 3.42145, 3.8982)
-current = true
 fov = 65.9689
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="camera_center/camera"]
@@ -196,7 +197,6 @@ mesh = SubResource("CylinderMesh_4urx5")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="camera_center/camera"]
 transform = Transform3D(1, 0, 0, 0, 0.968239, -0.250026, 0, 0.250026, 0.968239, 0, 0, 0)
-current = true
 
 [node name="click_stream" type="AudioStreamPlayer3D" parent="camera_center/camera"]
 stream = ExtResource("14_jvr0e")

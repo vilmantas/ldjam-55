@@ -21,13 +21,13 @@ public partial class ShopUIController : Control
 	{
 		bool previousItemUnlocked = RecipeManager.Instance.Recipes.First().IsUnlocked;
 
-		foreach (var recipe in RecipeManager.Instance.Recipes.Where(x => x.IsShopItem))
-		{
-			var shopItem = ShopItemPrefab.Instantiate<ShopItemController>();
-			shopItem.SetRecipe(recipe, previousItemUnlocked);
-			previousItemUnlocked = recipe.IsUnlocked;
-			ShopItemsContainer.AddChild(shopItem);
-		}
+		// foreach (var recipe in RecipeManager.Instance.Recipes.Where(x => x.IsShopItem))
+		// {
+		// 	var shopItem = ShopItemPrefab.Instantiate<ShopItemController>();
+		// 	shopItem.SetRecipe(recipe, previousItemUnlocked);
+		// 	previousItemUnlocked = recipe.IsUnlocked;
+		// 	ShopItemsContainer.AddChild(shopItem);
+		// }
 
 		foreach (var gameUpgrade in UpgradesManager.Instance.Upgrades)
 		{
