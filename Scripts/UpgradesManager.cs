@@ -52,7 +52,7 @@ public partial class UpgradesManager : Node
 			Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/Coconut.png"),
 			MaxTiers = 1,
 			CurrentTier = 0,
-			TierCosts = new[] { 0, 400 },
+			TierCosts = new[] { 0, 250 },
 			ApplyUpgrade = ApplyCoconutUpgrade,
 			RequiredRecipe = "Coconut"
 		});
@@ -63,7 +63,7 @@ public partial class UpgradesManager : Node
 			Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/Cabbage.png"),
 			MaxTiers = 1,
 			CurrentTier = 0,
-			TierCosts = new[] { 0, 800 },
+			TierCosts = new[] { 0, 400 },
 			ApplyUpgrade = ApplyCabbageUpgrade,
 			RequiredRecipe = "Cabbage",
 		});
@@ -74,10 +74,47 @@ public partial class UpgradesManager : Node
 			Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/Pumpkin.png"),
 			MaxTiers = 1,
 			CurrentTier = 0,
-			TierCosts = new[] { 0, 1200 },
+			TierCosts = new[] { 0, 500 },
 			ApplyUpgrade = ApplyPumpkinUpgrade,
 			RequiredRecipe = "Pumpkin",
 		});
+
+		Upgrades.Add(new GameUpgrade()
+		{
+			Name = "Extra Lives",
+			Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/ExtraLife.png"),
+			MaxTiers = 5,
+			CurrentTier = 0,
+			TierCosts = new[] { 0, 100, 500, 500, 500, 500 },
+			ApplyUpgrade = ApplyHealthUpgrade,
+			RequiredRecipe = "Pineapple",
+		});
+
+		Upgrades.Add(new GameUpgrade()
+		{
+			Name = "Remove Shrooms",
+			Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/Shroom.png"),
+			MaxTiers = 1,
+			CurrentTier = 0,
+			TierCosts = new[] { 0, 1000 },
+			ApplyUpgrade = ApplyShroomRemoverUpgrade,
+			RequiredRecipe = "Pineapple",
+		});
+	}
+
+	public void ApplyShroomRemoverUpgrade(GameUpgrade upgrade, Gameplay gameplay)
+	{
+		if (upgrade.CurrentTier == 0) return;
+
+		gameplay.UsableComponents = gameplay.UsableComponents.Where(x => !x.ResourcePath.Contains("shroom")).ToArray();
+	}
+
+	public void ApplyHealthUpgrade(GameUpgrade upgrade, Gameplay gameplay)
+	{
+		for (int i = 1; i <= upgrade.CurrentTier; i++)
+		{
+			gameplay.CurrentLives += 1;
+		}
 	}
 
 	public void ApplyUpgrades(Gameplay gameplay)

@@ -88,7 +88,7 @@ public static class GameDataSaver
 
         foreach (var recipe in RecipeManager.Instance.Recipes.Where(x => x.IsShopItem))
         {
-            recipe.IsUnlocked = (bool) recipeData[recipe.ResultName];
+            recipe.IsUnlocked = true;
         }
 
         // UPGRADES
@@ -106,6 +106,8 @@ public static class GameDataSaver
 
         foreach (var upgrade in UpgradesManager.Instance.Upgrades)
         {
+            if (!upgradeData.ContainsKey(upgrade.Name)) continue;
+
             upgrade.CurrentTier = (int)upgradeData[upgrade.Name];
         }
     }

@@ -9,5 +9,5 @@ Components = PackedStringArray("Coconut", "Coconut")
 Result = ExtResource("1_b16ff")
 CompletionReward = 1200
 IsShopItem = true
-IsUnlocked = false
+IsUnlocked = true
 UnlockCost = 150

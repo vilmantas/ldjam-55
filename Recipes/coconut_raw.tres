@@ -9,5 +9,5 @@ Components = PackedStringArray("Pineapple", "Pineapple")
 Result = ExtResource("1_f27i2")
 CompletionReward = 700
 IsShopItem = true
-IsUnlocked = false
+IsUnlocked = true
 UnlockCost = 80

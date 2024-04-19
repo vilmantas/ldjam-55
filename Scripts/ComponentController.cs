@@ -7,6 +7,8 @@ public partial class ComponentController : RigidBody3D
 {
 	public int Id;
 
+	private bool IsConsumed = false;
+
 	public static int NextId = 0;
 
 	[Export] public string ComponentName;
@@ -24,6 +26,12 @@ public partial class ComponentController : RigidBody3D
 	private PackedScene Particles;
 
 	private List<Recipe> UnlockedRecipes;
+
+	private float FullSizeTimout =0.1f;
+
+	private float FullSizeTimeoutCurrent = 0f;
+
+	public bool IsThrown = false;
 
 	public override void _Ready()
 	{
@@ -48,11 +56,44 @@ public partial class ComponentController : RigidBody3D
 		CollidedComponents = RecipeManager.Instance.UniqueComponents.ToDictionary(x => x, x => new List<ComponentController>());
 
 		CollidedComponentsCounts = RecipeManager.Instance.UniqueComponents.ToDictionary(x => x, x => 0);
+
+		if (IsThrown) return;
+
+		Scale = Vector3.Zero * 0.1f;
 	}
 
 	public override void _Process(double delta)
 	{
 		BumpSoundCooldown -= (float)delta;
+
+		if (IsThrown) return;
+
+		FullSizeTimeoutCurrent += (float)delta;
+
+		var currentScale = Mathf.Lerp(0, 1, Math.Min(1, FullSizeTimeoutCurrent / FullSizeTimout));
+
+		if (currentScale == 1) return;
+
+		Scale = new Vector3(currentScale, currentScale, currentScale);
+
+		if (ComponentName == "Pineapple")
+		{
+			RotateY((float)GD.RandRange(-Mathf.Pi, Mathf.Pi));
+		}
+		else
+		{
+			GD.Randomize();
+
+			RotateY((float)GD.RandRange(-Mathf.Pi, Mathf.Pi));
+
+			GD.Randomize();
+
+			RotateX((float)GD.RandRange(-Mathf.Pi, Mathf.Pi));
+
+			GD.Randomize();
+
+			RotateZ((float)GD.RandRange(-Mathf.Pi, Mathf.Pi));
+		}
 	}
 
 	private void OnBodyExited(Node body)
@@ -66,9 +107,12 @@ public partial class ComponentController : RigidBody3D
 
 	public void OnBodyEntered(Node node)
 	{
+		if (IsConsumed) return;
+
 		if (node is GroundController)
 		{
-			Gameplay.Instance.GameOver(this);
+			Gameplay.Instance.OnGroundHit(this);
+			IsConsumed = true;
 			return;
 		}
 

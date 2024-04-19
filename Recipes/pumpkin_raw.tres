@@ -9,5 +9,5 @@ Components = PackedStringArray("Cabbage", "Cabbage")
 Result = ExtResource("1_utwl0")
 CompletionReward = 4000
 IsShopItem = true
-IsUnlocked = false
-UnlockCost = 400
+IsUnlocked = true
+UnlockCost = 200

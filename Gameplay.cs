@@ -15,6 +15,8 @@ public partial class Gameplay : Node3D
 
 	[Export] public Rotator Kebab;
 
+	public int CurrentLives = 3;
+
 	public static Gameplay Instance;
 
 	public int CurrentScore = 0;
@@ -48,6 +50,8 @@ public partial class Gameplay : Node3D
 		Instance = this;
 
 		Particles = ResourceLoader.Load<PackedScene>("res://Prefabs/smoke.tscn");
+
+		UpgradesManager.Instance.ApplyUpgrades(this);
 
 		foreach (var component in UsableComponents)
 		{
@@ -95,8 +99,6 @@ public partial class Gameplay : Node3D
 		}
 
 		SpawnDisplay(UsableComponents[CurrentIndex], UsableComponents[NextIndex]);
-
-		UpgradesManager.Instance.ApplyUpgrades(this);
 	}
 
 	public bool GameOverHandled = false;
@@ -143,22 +145,9 @@ public partial class Gameplay : Node3D
 
 		AddChild(instance);
 
-		midpoint.Y += 0.5f;
+		midpoint.Y += 0.1f;
 
 		instance.GlobalPosition = midpoint;
-
-		GD.Randomize();
-
-		if (recipe.ResultName == "Pineapple")
-		{
-			instance.RotateY((float)GD.RandRange(-Mathf.Pi, Mathf.Pi));
-		}
-		else
-		{
-			instance.RotateX((float)GD.RandRange(-Mathf.Pi, Mathf.Pi));
-
-			instance.RotateZ((float)GD.RandRange(-Mathf.Pi, Mathf.Pi));
-		}
 
 		GD.Randomize();
 
@@ -238,6 +227,8 @@ public partial class Gameplay : Node3D
 	{
 		var instance = component.Instantiate<ComponentController>();
 
+		instance.IsThrown = true;
+
 		Camera.ComponentSpawn.AddChild(instance);
 
 		var forward = -Camera.ComponentSpawn.GlobalTransform.Basis.Z * (2.5f + Power) ;
@@ -259,6 +250,8 @@ public partial class Gameplay : Node3D
 	{
 		var currentDisplayInstance = current.Instantiate<ComponentController>();
 
+		currentDisplayInstance.IsThrown = true;
+
 		Camera.DisplaySpawn.AddChild(currentDisplayInstance);
 
 		Camera.CurrentDisplay = currentDisplayInstance;
@@ -268,6 +261,8 @@ public partial class Gameplay : Node3D
 
 		var nextDisplayInstance = next.Instantiate<ComponentController>();
 
+		nextDisplayInstance.IsThrown = true;
+
 		Camera.NextDisplaySpawn.AddChild(nextDisplayInstance);
 
 		Camera.NextDisplay = nextDisplayInstance;
@@ -276,8 +271,15 @@ public partial class Gameplay : Node3D
 		Camera.NextDisplay.FreezeMode = RigidBody3D.FreezeModeEnum.Static;
 	}
 
-	public void GameOver(ComponentController component)
+	public void OnGroundHit(ComponentController component)
 	{
-		IsGameOver = true;
+		CurrentLives--;
+
+		HurtAudio.Play();
+
+		if (CurrentLives == 0)
+		{
+			IsGameOver = true;
+		}
 	}
 }

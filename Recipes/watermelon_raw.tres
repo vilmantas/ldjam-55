@@ -9,5 +9,5 @@ Components = PackedStringArray("Pumpkin", "Pumpkin")
 Result = ExtResource("1_k281w")
 CompletionReward = 10000
 IsShopItem = true
-IsUnlocked = false
-UnlockCost = 1000
+IsUnlocked = true
+UnlockCost = 400

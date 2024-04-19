@@ -26,6 +26,8 @@ public partial class IntroUIController : Control
     [Export] public Button ClearStats;
     public override void _Ready()
     {
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+
         ScoreLabel.Text = GameManager.Instance.MaxScore.ToString();
 
         GoldLabel.Text = GameManager.Instance.Gold.ToString();

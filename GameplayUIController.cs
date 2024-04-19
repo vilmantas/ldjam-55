@@ -9,6 +9,8 @@ public partial class GameplayUIController : Control
 
     private Label ScoreText;
 
+    [Export] private Label LivesText;
+
     public override void _Ready()
     {
         Gameplay = Gameplay.Instance;
@@ -23,5 +25,7 @@ public partial class GameplayUIController : Control
         PowerBar.Value = Gameplay.Power;
 
         ScoreText.Text = Gameplay.CurrentScore.ToString();
+
+        LivesText.Text = Gameplay.CurrentLives.ToString();
     }
 }
