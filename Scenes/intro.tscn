@@ -209,7 +209,7 @@ script = ExtResource("15_x6flt")
 [node name="center" type="Node3D" parent="."]
 
 [node name="bowl" parent="." instance=ExtResource("14_dyfvn")]
-transform = Transform3D(1.82675, 0, 0, 0, 0.653925, 0, 0, 0, 1.82675, 0, 0.835752, 0)
+transform = Transform3D(1.827, 0, 0, 0, 0.978, 0, 0, 0, 1.827, 0, 0.835752, 0)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="bowl"]
 

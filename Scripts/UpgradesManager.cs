@@ -13,16 +13,16 @@ public partial class UpgradesManager : Node
 	{
 		Instance = this;
 
-		Upgrades.Add(new GameUpgrade()
-		{
-			Name = "Increased Height",
-			Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/BowlHeight.png"),
-			MaxTiers = 10,
-			CurrentTier = 0,
-			TierCosts = new[] { 0, 100, 200, 300, 400, 500, 600, 800, 1000, 1200, 2000 },
-			ApplyUpgrade = ApplyHeightUpgrade,
-			RequiredRecipe = "Pineapple",
-		});
+		// Upgrades.Add(new GameUpgrade()
+		// {
+		// 	Name = "Increased Height",
+		// 	Icon = ResourceLoader.Load<Texture2D>("res://UpgradeImages/BowlHeight.png"),
+		// 	MaxTiers = 10,
+		// 	CurrentTier = 0,
+		// 	TierCosts = new[] { 0, 100, 200, 300, 400, 500, 600, 800, 1000, 1200, 2000 },
+		// 	ApplyUpgrade = ApplyHeightUpgrade,
+		// 	RequiredRecipe = "Pineapple",
+		// });
 
 		Upgrades.Add(new GameUpgrade()
 		{
@@ -127,11 +127,11 @@ public partial class UpgradesManager : Node
 
 	public void ApplyHeightUpgrade(GameUpgrade upgrade, Gameplay gameplay)
 	{
-		for (int i = 1; i <= upgrade.CurrentTier; i++)
-		{
-			gameplay.Bowl.Scale = new Vector3(gameplay.Bowl.Scale.X, gameplay.Bowl.Scale.Y + 0.05f,
-				gameplay.Bowl.Scale.Z);
-		}
+		// for (int i = 1; i <= upgrade.CurrentTier; i++)
+		// {
+		// 	gameplay.Bowl.Scale = new Vector3(gameplay.Bowl.Scale.X, gameplay.Bowl.Scale.Y + 0.05f,
+		// 		gameplay.Bowl.Scale.Z);
+		// }
 	}
 
 	public void ApplyWidthUpgrade(GameUpgrade upgrade, Gameplay gameplay)
@@ -149,6 +149,8 @@ public partial class UpgradesManager : Node
 
 		var component = recipe.Result.Instantiate<ComponentController>();
 
+		component.IsThrown = true;
+
 		gameplay.AddChild(component);
 
 		component.GlobalPosition = new Vector3(0, 1.5f, 0.5f);
@@ -159,6 +161,8 @@ public partial class UpgradesManager : Node
 		var recipe = RecipeManager.Instance.Recipes.First(x => x.ResultName == "Coconut");
 
 		var component = recipe.Result.Instantiate<ComponentController>();
+
+		component.IsThrown = true;
 
 		gameplay.AddChild(component);
 
@@ -171,6 +175,8 @@ public partial class UpgradesManager : Node
 
 		var component = recipe.Result.Instantiate<ComponentController>();
 
+		component.IsThrown = true;
+
 		gameplay.AddChild(component);
 
 		component.GlobalPosition = new Vector3(1f, 1.5f, 0);
@@ -181,6 +187,8 @@ public partial class UpgradesManager : Node
 		var recipe = RecipeManager.Instance.Recipes.First(x => x.ResultName == "Pumpkin");
 
 		var component = recipe.Result.Instantiate<ComponentController>();
+
+		component.IsThrown = true;
 
 		gameplay.AddChild(component);
 
